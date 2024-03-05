@@ -7,19 +7,31 @@ import {
   DialogTrigger,
 } from "@radix-ui/react-dialog";
 import { Button } from "../button";
-import { DialogFooter, DialogHeader } from "../dialog";
+import { DialogHeader } from "../dialog";
 import { Label } from "@radix-ui/react-dropdown-menu";
 import { Input } from "../input";
 import { FormEvent, useState } from "react";
+import { useAppDispatch } from "@/redux/hooks";
+import { addTodo } from "@/redux/feature/totoSlice";
 
 const TodoModal = () => {
   const [open, setOpen] = useState(false);
   const [task, setTask] = useState("");
   const [description, setDescription] = useState("");
+  const dispatch = useAppDispatch();
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
-    console.log({ task, description });
+
+    const idString = Math.random().toString(36).substring(2, 7);
+    const taskDetails = {
+      id: idString,
+      title: task,
+      description: description,
+    };
+
+    // console.log(taskDetails);
+    dispatch(addTodo(taskDetails));
     setOpen(false);
   };
   return (
