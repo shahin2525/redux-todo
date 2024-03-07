@@ -17,16 +17,16 @@ const TodoContainer = () => {
         <TodoModal />
         <TodoFilter></TodoFilter>
       </div>
-      <div className="bg-primary-gradient rounded-xl w-full h-full p-[5px] overflow-auto">
-        {/* <div className="bg-white font-2xl font-bold rounded-xl w-full p-3 flex justify-center items-center">
-          <p>There is no task pending</p>
-        </div> */}
-
-        <div className="bg-white w-full h-full p-5 rounded-lg space-y-2">
+      <div className="bg-primary-gradient rounded-xl w-full h-full p-[5px] ">
+        <div className="bg-white w-full h-full p-5 rounded-lg space-y-3">
           {todos?.data?.map((item) => (
             <TodoCard {...item}></TodoCard>
           ))}
         </div>
+
+        {/* <div className="bg-white font-2xl font-bold rounded-xl w-full p-3 flex justify-center items-center">
+          <p>There is no task pending</p>
+        </div> */}
       </div>
     </div>
   );
