@@ -12,25 +12,29 @@ import { Input } from "../input";
 import { FormEvent, useState } from "react";
 import { useAppDispatch } from "@/redux/hooks";
 import { addTodo } from "@/redux/feature/totoSlice";
+import { useAddTodoMutation } from "@/redux/api/api";
 
 const TodoModal = () => {
   const [open, setOpen] = useState(false);
   const [task, setTask] = useState("");
   const [description, setDescription] = useState("");
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
+  const [addTodo, { data, isLoading, isError }] = useAddTodoMutation();
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    const idString = Math.random().toString(36).substring(2, 7);
+    // const idString = Math.random().toString(36).substring(2, 7);
+
     const taskDetails = {
-      id: idString,
+      // id: idString,
       title: task,
       description: description,
     };
-
+    addTodo(taskDetails);
     // console.log(taskDetails);
-    dispatch(addTodo(taskDetails));
+    // dispatch(addTodo(taskDetails));
+
     setOpen(false);
   };
   return (
