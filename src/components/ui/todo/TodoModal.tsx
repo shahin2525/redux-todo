@@ -40,10 +40,12 @@ const TodoModal = () => {
     const taskDetails = {
       // id: idString,
       title: task,
-      description: description,
+      description,
+      isCompleted: false,
+      priority,
     };
     addTodo(taskDetails);
-    // console.log(taskDetails);
+    console.log("inside modal", taskDetails);
     // dispatch(addTodo(taskDetails));
 
     setOpen(false);
