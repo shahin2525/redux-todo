@@ -1,12 +1,17 @@
 import { useAddTodoMutation } from "@/redux/api/api";
+
+import { FormEvent, useState } from "react";
+import { Button } from "../button";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
+  DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@radix-ui/react-dialog";
-import { Label } from "@radix-ui/react-dropdown-menu";
+} from "../dialog";
+import { Input } from "../input";
+import { Label } from "../label";
 import {
   Select,
   SelectContent,
@@ -15,11 +20,7 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@radix-ui/react-select";
-import { FormEvent, useState } from "react";
-import { Button } from "../button";
-import { DialogHeader } from "../dialog";
-import { Input } from "../input";
+} from "../select";
 
 const TodoModal = () => {
   const [open, setOpen] = useState(false);

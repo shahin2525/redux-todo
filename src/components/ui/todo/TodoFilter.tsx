@@ -1,3 +1,5 @@
+import { Button } from "../button";
+import { useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -6,9 +8,7 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@radix-ui/react-dropdown-menu";
-import { Button } from "../button";
-import { useState } from "react";
+} from "../dropdown-menu";
 
 const TodoFilter = () => {
   const [position, setPosition] = useState("bottom");
